@@ -8,6 +8,7 @@ import logging
 # 微信消息接口
 @app.route('/',methods=["POST","GET"])
 def main():
+
     try:
         signature = request.args.get("signature", "")
         timestamp = request.args.get("timestamp", "")
@@ -34,7 +35,7 @@ def main():
         # 渲染返回值模板
         return wc.RenderResult()
     except Exception, e:
-        return e.message
+        return str(e.message)
 
 
 

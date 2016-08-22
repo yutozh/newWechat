@@ -42,7 +42,7 @@ html = ' http://127.0.0.1:5000/ '
 # html = 'http://182.254.146.38/'
 headers={"Content-Type":"text/xml","Cookies":"cookie"}
 
-response = urllib2.Request(url=html,data=test0,headers=headers)  # 使用了POST方法将data上传
+response = urllib2.Request(url=html,data="0",headers=headers)  # 使用了POST方法将data上传
 
 url_data = urllib2.urlopen(response)
 
