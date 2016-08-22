@@ -32,7 +32,10 @@ class PhotoClient(BaseMatch):
                 except:
                     return self.Result("信息输入有误，请重试")
                 if stuNumber.isdigit() and stuName.isalpha():
-                    mediaID = r.hget("Photos",self.data).split("|")[0]
+                    try:
+                        mediaID = r.hget("Photos",self.data).split("|")[0]
+                    except:
+                        mediaID = None
                     if mediaID is not None:
                         self.SetTargetAndArgs(self.__class__.__name__, "1")
                         return self.Result(mediaID, 1)

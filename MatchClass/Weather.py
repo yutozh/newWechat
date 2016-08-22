@@ -23,7 +23,7 @@ class Weather(BaseMatch):
             self.SetActive()
             try:
                 return self.Result(self.GetWeather(self.data) +
-                               "\n回复“退出”可退出查询天气模式～")
+                               "\n\n回复“退出”可退出查询天气模式～")
             except Exception, e:
                 logging.error(e.message)
                 self.SetInactive()
@@ -59,7 +59,7 @@ class Weather(BaseMatch):
                 t1=day[i]["temperature0"],
                 t2=day[i]["temperature1"])
 
-        line = "----------------"
+        line = "---------------------\n"
         res = "{c}天气\n" \
               +line+\
               "明天{d1}\n" \
