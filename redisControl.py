@@ -3,6 +3,8 @@ import redis
 import logging
 from app.config import ZIPSTR, FUNCTAGSTR
 import time
+import sys, getopt
+
 r = redis.StrictRedis()
 
 # 添加指定列表中的key-value
@@ -52,3 +54,29 @@ def DelKeyWords(keywords, funName):
 # AddKeyWords(["管理员上传"], "PhotoAdmin")
 # AddKeyWords(["爆照"], "PhotoClient")
 # print "".isdigit()
+
+if __name__ == '__main__':
+    opts, args = getopt.getopt(sys.argv[1:], "df:")
+    if len(opts) == 0:
+        print "(-d) for delete, [-f] for funName, others for keywords"
+    isDel = False
+    funName = ''
+    for op, value in opts:
+        if op == '-d':
+            isDel = True
+        elif op == '-f':
+            funName = value
+    try:
+        if isDel:
+            res = DelKeyWords(args, funName)
+        else:
+            res = AddKeyWords(args, funName)
+    except Exception, e:
+        print e.message
+        res = False
+
+    if res:
+        print "完成"
+    else:
+        print "失败"
+    sys.exit(0)
