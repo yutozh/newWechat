@@ -81,4 +81,4 @@ def DelKeyWords(keywords, funName):
 #         print "失败"
 #     sys.exit(0)
 
-print r.hgetall("Photos")
+# print r.hgetall("Photos")
