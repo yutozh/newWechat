@@ -11,9 +11,9 @@ app.secret_key = "hahahahahaimpossible!!!"
 from app.controller.main import *
 from app.controller.web import *
 
-# logging.basicConfig(level=logging.DEBUG,
-#                     format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-#                     datefmt='%a, %d %b %Y %H:%M:%S',
-#                     filename= os.path.join(os.getcwd(),'RUNNING.log'),
-#                     filemode='w')
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename= os.path.join(os.getcwd(),'RUNNING.log'),
+                    filemode='w')
 
