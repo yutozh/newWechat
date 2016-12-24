@@ -80,3 +80,7 @@ class BaseMatch(object):
     # 构造返回值列表，第一项为数据，第二项为消息类型
     def Result(self, value, type=0):
         return [value, BaseMatch.typeList[int(type)]]
+
+# 渲染超链接
+def RenderURL(url, text):
+    return '&lt;a href=' + url + '&gt;' + text + '&lt;/a&gt;'

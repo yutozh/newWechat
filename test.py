@@ -13,10 +13,10 @@ test = '''<xml><ToUserName>2</ToUserName>
 <MsgId>1234567890123456</MsgId>
 </xml>'''
 test0 = '''<xml><ToUserName>2</ToUserName>
-<FromUserName>3</FromUserName>
+<FromUserName>zyt</FromUserName>
 <CreateTime>1348831860</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
-<Content>爆照</Content>
+<Content>借书</Content>
 <MsgId>1234567890123456</MsgId>
 </xml>'''
 test1 = '''<xml><ToUserName>2</ToUserName>

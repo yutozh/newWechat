@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="../static/css/weui.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/mycss.css">
+    <title>账号绑定</title>
+</head>
+<body>
+
+<div class="Main_title">
+    <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">错误提示</div>
+    <span id="main_title_span1"><a href="javascript:history.back();">返回</a></span>
+    <span id="main_title_span2">账号绑定</span>
+    <span id="main_title_span3">反馈</span>
+</div>
+<div class="my-mask" style="display: none"></div>
+
+<div class="js_dialog" id="infoDialog" style="display: none;">
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent1"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+
+<div class="js_dialog" id="chooseDialog" style="display: none">
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">提示</strong></div>
+        <div class="weui-dialog__bd" id="dialogContent2"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">继续绑定</a>
+            <a href="javascript:history.back();" class="weui-dialog__btn weui-dialog__btn_primary">返回</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="loadingToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+</div>
+
+<div class="container">
+    <div class="weui-cells__title">学号</div>
+
+
+    <div class="weui-cell" id="cell_stunum">
+        <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入学号" type="number" name="stuNum" id="input_stunum">
+        </div>
+    </div>
+
+
+    <div class="weui-cells__title">密码</div>
+
+        <div class="weui-cell" id="cell_libpsd">
+            <div class="weui-cell__hd">
+                <label class="weui-label">图书馆&nbsp;&nbsp;&nbsp; </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入图书馆密码" type="password" id="input_libpsd">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">教务系统</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入教务系统密码" type="password" id="input_edupsd">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">校园卡&nbsp;&nbsp;&nbsp; </label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入校园卡密码" type="password" id="input_cardpsd">
+            </div>
+        </div>
+</div>
+
+<div class="page__bd page__bd_spacing" id="submit_buttons">
+    <a class="weui-btn weui-btn_primary" id="showTooltips">提交</a>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" language="JavaScript"></script>
+<script src="../static/js/myjs.js" language="JavaScript"></script>
+<script src="../static/js/zepto.min.js" language="JavaScript"></script>
+
+</body>
+</html>

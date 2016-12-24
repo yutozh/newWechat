@@ -18,7 +18,7 @@ class Message(object):
     def Parse(self):
         try:
             isActive = int(time.time()) - int(self.status["active"]) < ACTIVEDURATION
-            print int(time.time()), int(self.status["active"])
+            # print int(time.time()), int(self.status["active"])
         except:
             isActive = False
 
@@ -28,7 +28,9 @@ class Message(object):
         if isActive:
             try:
                 key = self.status["target"].split(ZIPSTR)[0]
+                # 根据回复的关键字找到类名
                 className = r.hget('MatchName', key).split(ZIPSTR)[0]
+                # 获取参数
                 args = self.status["target"].split(ZIPSTR)[1]
             except Exception, e:
                 className  = r.hget('MatchName', self.data).split(ZIPSTR)[0]

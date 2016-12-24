@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="../static/css/weui.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/mycss.css">
+    <title>图书馆</title>
+</head>
+<body>
+
+<div class="Main_title">
+    <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">错误提示</div>
+    <span id="main_title_span1" onclick="history.back();">返回</span>
+    <span id="main_title_span2">图书馆</span>
+    <span id="main_title_span3">反馈</span>
+</div>
+<div class="my-mask" style=""></div>
+
+<div class="js_dialog" id="infoDialog" style="display: none;">
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent1"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+
+<div class="js_dialog" id="chooseDialog" style="display: none">
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">提示</strong></div>
+        <div class="weui-dialog__bd" id="dialogContent2"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">继续绑定</a>
+            <a href="javascript:history.back();" class="weui-dialog__btn weui-dialog__btn_primary">返回</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="loadingToast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-loading weui-icon_toast"></i>
+        <p class="weui-toast__content">数据加载中</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="page__bd">
+        <div class="weui-cells__title">
+            <span id="booksListTitle">图书列表</span>
+            <div style="float: right">应还时间</div>
+        </div>
+
+        <div class="weui-cells weui-cells_checkbox" id="bookItems">
+
+        </div>
+
+        <div class="page__bd page__bd_spacing" id="submit_buttons">
+            <a class="weui-btn weui-btn_primary" id="xjButton">续借</a>
+            <a class="weui-btn weui-btn_primary" id="sbButton" style="display: none">提交</a>
+            <a class="weui-btn weui-btn_default" id="qxButton" style="display: none">取消</a>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" language="JavaScript"></script>
+<script src="../static/js/myjs.js" language="JavaScript"></script>
+<script src="../static/js/zepto.min.js" language="JavaScript"></script>
+<script>
+    $(function () {
+        var argStr = window.location.search.split('&');
+        var $loadingToast = $("#loadingToast");
+        var args = {};
+        for (var i = 0; i < argStr.length; i++) {
+            var k = argStr[i].split('=')[0].substr(1);
+            args[k] = argStr[i].split('=')[1];
+        }
+        $.ajax({
+            url: '/lib/xj',
+            type: "post",
+            data: {
+                'aim': 'book',
+                'user': args['user']
+            },
+            beforeSend: function () {
+                if (args['user'] === undefined) {
+                    alert('非法访问');
+                    history.back();
+                    return;
+                }
+                if ($loadingToast.css("display") != "none") return;
+
+                $loadingToast.show();
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.error == '-1') {
+                    showButtonAndSetLink("你还未绑定图书馆账号,请先绑定~",'/bind?user='+args['user']);
+                }
+                if (data.error == '-2') {
+                    showButtonAndSetLink("你绑定的图书馆账号信息有误,请重新绑定~",'/bind?user='+args['user']);
+                }
+                if(data.length == 0){
+                    showButtonAndSetLink("你没有借书哦,快去多借些书吧~",'/lib/index');
+                }
+                var booksContent = '';
+
+                for (var i = 1; i <= data.length; i++) {
+                    booksContent += '<label class="weui-cell weui-check__label booksCheck" for="b'+ i.toString() +'">\
+                <div class="weui-cell__hd">\
+                    <input type="checkbox" class="weui-check" name="booksCheckbox" id="b'+ i.toString() +'" value="'+ i.toString() +'">\
+                    <i class="weui-icon-checked"></i>\
+                </div>\
+                <div class="weui-cell__bd">\
+                    <p>'+ data[i-1].book +'</p>\
+                </div>\
+                <div class="weui-cell__ft">'+ data[i-1].duetime +'</div>\
+            </label>';
+                }
+                $loadingToast.hide();
+                $("#bookItems").html(booksContent);
+            }
+        });
+    })
+
+</script>
+
+</body>

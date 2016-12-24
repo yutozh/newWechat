@@ -1,0 +1,69 @@
+.Main_title{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-size: large;
+    background: mediumpurple;
+    position: relative;
+}
+#main_title_span1, #main_title_span3{
+    line-height: 45px;
+    font-size: small;
+    position: absolute;
+    color: white;
+    text-decoration: none;
+}
+#main_title_span1{
+    left: 10px;
+}
+#main_title_span2{
+    line-height: 45px;
+}
+#main_title_span3{
+    right: 10px;
+}
+
+/*.page__bd{*/
+    /*padding: 0 15px;*/
+/*}*/
+#submit_buttons{
+    margin-top: 50px;
+}
+
+.my-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.searchbar-result .weui-cell__bd{
+    padding: 2px 0 2px 20px;
+    color: #29b8ee;
+    font-size: small;
+}
+#searchBox{
+    position: relative;
+}
+.searchbar-result{
+    margin-top: 0;
+    position: absolute;
+    top: 45px;
+    z-index: 999;
+    width: 100%;
+}
+.weui-cells{
+    margin-top: 0;
+}
+
+#submit_buttons{
+    padding: 0 15px;
+}
+
+.booksCheck{
+    margin-left: -45px;
+}

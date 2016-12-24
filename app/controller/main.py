@@ -35,6 +35,7 @@ def main():
         # 渲染返回值模板
         return wc.RenderResult()
     except Exception, e:
+        print "error"
         return str(e.message)
 
 
