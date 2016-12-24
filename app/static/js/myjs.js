@@ -162,9 +162,8 @@ $(function () {
                     }
                     var i = 0;
                     status = {"-2":"已达到续借限制","-3": "本书不能续借","0":"成功"};
-                    checked.each(function () {
-                        var value = $(this);
-                        $("input[name='booksCheckbox'], input[value="+value+"]").text(status[data[i]]);
+                    checked.forEach(function (e) {
+                        $("input[name='booksCheckbox'], input[value="+e+"]").text(status[data[i]]);
                     })
                 }
             });
