@@ -27,7 +27,7 @@ class Library(BaseMatch):
 
 # 渲染超链接
 def RenderURL(url, text):
-    return '&lt;a href=' + url + '&gt;' + text + '&lt;/a&gt;'
+    return "&lt;"+' a href=' + url + '&gt;' + text + '&lt;/a &gt;'
 
 # 判断用户是否绑定,是,返回已借书列表,否,返回False
 def UserRegi(user):

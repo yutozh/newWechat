@@ -3,5 +3,5 @@
  <FromUserName><![CDATA[{{ fromUser }}]]></FromUserName>
  <CreateTime>{{ timestamp }}</CreateTime>
  <MsgType><![CDATA[text]]></MsgType>
- <Content><![CDATA[{{resultContent}}]]></Content>
+ <Content><![CDATA[{{resultContent|safe}}]]></Content>
 </xml>
