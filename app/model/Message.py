@@ -62,6 +62,7 @@ class Message(object):
             return self.result[1]
         except Exception, e:
             logging.error(e.message)
+            logging.error(self.result)
             return 'text'
 
     def DefaultResult(self):
