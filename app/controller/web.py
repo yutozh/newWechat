@@ -55,7 +55,7 @@ def libIndex(target):
             if status == 'book':
                 books, append =  getLib(user_id, password)
                  # 密码错误
-                if append[0] == "-1":
+                if len(append) >0 and append[0] == "-1":
                     return json.dumps({"error": '-2'})
                 return json.dumps(books)
             # 续借请求,返回结果
