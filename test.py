@@ -13,10 +13,10 @@ test = '''<xml><ToUserName>2</ToUserName>
 <MsgId>1234567890123456</MsgId>
 </xml>'''
 test0 = '''<xml><ToUserName>2</ToUserName>
-<FromUserName>zt</FromUserName>
+<FromUserName>zyt</FromUserName>
 <CreateTime>1348831860</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
-<Content>借书</Content>
+<Content>你好</Content>
 <MsgId>1234567890123456</MsgId>
 </xml>'''
 test1 = '''<xml><ToUserName>2</ToUserName>
@@ -37,7 +37,7 @@ test2= '''
  <MsgId>1234567890123456</MsgId>
  </xml>
  '''
-html = ' http://127.0.0.1:5000/ '
+html = ' http://127.0.0.1:9001/ '
 #html = 'http://4.wx4321.sinaapp.com/'
 # html = 'http://182.254.146.38/'
 headers={"Content-Type":"text/xml","Cookies":"cookie"}
