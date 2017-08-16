@@ -10,3 +10,5 @@ DEFAULTMESSAGE = "你的消息我们已经收到～～"
 
 token = "linux"
 ADMINCOMMAND = ""
+
+URLBASE = 'http://wechat.oattao.cn/'

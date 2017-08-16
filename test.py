@@ -16,7 +16,7 @@ test0 = '''<xml><ToUserName>2</ToUserName>
 <FromUserName>zyt</FromUserName>
 <CreateTime>1348831860</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
-<Content>你好</Content>
+<Content>天气</Content>
 <MsgId>1234567890123456</MsgId>
 </xml>'''
 test1 = '''<xml><ToUserName>2</ToUserName>
