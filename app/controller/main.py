@@ -1,7 +1,7 @@
 # coding=utf8
 from app import app
 from flask import request
-import app.config as config
+from app.config import token
 from app.model.Wechat import BaseWechat
 import logging
 
@@ -16,7 +16,7 @@ def main():
         echostr = request.args.get("echostr", "")
 
         # 实例化Wechat类，传入设定在微信后台的token
-        wc = BaseWechat(config.token)
+        wc = BaseWechat(token)
 
         # echostr是微信用来验证服务器的参数，需原样返回
         if echostr:

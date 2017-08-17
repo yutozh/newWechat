@@ -47,7 +47,8 @@ class BaseWechat(object):
         for x in listTest:
             s += x
         resTest = hashlib.sha1(s).hexdigest()
-        if resTest == echostr:
+
+        if resTest == signature:
             return True
         else:
             return False

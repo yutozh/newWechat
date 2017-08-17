@@ -2,6 +2,7 @@
 import urllib
 import urllib2
 import new
+
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -37,10 +38,15 @@ test2= '''
  <MsgId>1234567890123456</MsgId>
  </xml>
  '''
-html = ' http://127.0.0.1:9001/ '
+html = 'http://127.0.0.1:5000'
 #html = 'http://4.wx4321.sinaapp.com/'
 # html = 'http://182.254.146.38/'
 headers={"Content-Type":"text/xml","Cookies":"cookie"}
+
+# token = urllib2.urlopen(html+"?signature=48ef9320b175585c1c96d1aa91cbcd992fd47ee9&echostr=14679828899321855931&timestamp=1502971577&nonce=2692058841")
+# res = token.read()
+# print res
+
 
 response = urllib2.Request(url=html,data=test0,headers=headers)  # 使用了POST方法将data上传
 
